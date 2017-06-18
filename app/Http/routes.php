@@ -26,6 +26,8 @@ Route::get('/', function () {
 |
 */
 
+Route::get('student/index',['uses'=>'StudentController@index']);
+
 Route::group(['middleware' => ['web']], function () {
     //
     Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ($router)
