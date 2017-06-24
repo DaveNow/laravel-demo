@@ -63,7 +63,8 @@
 <!-- Bootstrap JavaScript 文件 -->
 <script src="{{ @asset('./static/bootstrap/js/bootstrap.min.js') }}"></script>
 
+@section('javascript')
 
-
+@show
 </body>
 </html>

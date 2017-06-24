@@ -28,6 +28,8 @@ Route::get('/', function () {
 
 Route::get('student/index',['uses'=>'StudentController@index']);
 
+
+
 Route::group(['middleware' => ['web']], function () {
     //
     Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ($router)
@@ -46,11 +48,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 
 
+
 });
 
 
 
+Route::group(['middleware' => 'web'], function () {
+    Route::any('student/cache1', 'StudentController@cache1');
+    Route::any('student/cache2', 'StudentController@cache2');
 
 
 
-
+});

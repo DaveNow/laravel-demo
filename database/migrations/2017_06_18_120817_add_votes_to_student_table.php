@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStudentsTable extends Migration
+class AddVotesToStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('student', function (Blueprint $table) {
+            //
+            $table->string('votes');
         });
     }
 
@@ -25,6 +25,8 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('students');
+        Schema::table('student', function (Blueprint $table) {
+            //
+        });
     }
 }

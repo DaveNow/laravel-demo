@@ -1,4 +1,6 @@
-@include('common.layouts')
+@extends('common.layouts')
+
+@include('common.message')
 
 @section('content')
 
@@ -17,42 +19,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>18</td>
-                <td>男</td>
-                <td>2016-01-01</td>
-                <td>
-                    <a href="">详情</a>
-                    <a href="">修改</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>18</td>
-                <td>男</td>
-                <td>2016-01-01</td>
-                <td>
-                    <a href="">详情</a>
-                    <a href="">修改</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>18</td>
-                <td>男</td>
-                <td>2016-01-01</td>
-                <td>
-                    <a href="">详情</a>
-                    <a href="">修改</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
+            @foreach($students as $student)
+                <tr>
+
+                    <th scope="row">{{ $student->id }}</th>
+
+                    {{--<td>{{ $student->name }}</td>--}}
+                    {{--<td>{{ $student->age }}</td>--}}
+                    {{--<td>{{ $student->sex  }}</td>--}}
+                    {{--<td>{{ date('Y-m-d', $student->created_at) }}</td>--}}
+                    <td>
+                        <a href="">详情</a>
+                        <a href="">修改</a>
+                        <a href="">删除</a>
+                    </td>
+                </tr>
+            @endforeach
+
             </tbody>
         </table>
     </div>
@@ -78,4 +61,13 @@
         </ul>
     </div>
 
+@stop
+
+@section('footer')
+
+    <div class="jumbotron" style="margin:0;">
+        <div class="container">
+            <span>  @2016 ic</span>
+        </div>
+    </div>
 @stop
